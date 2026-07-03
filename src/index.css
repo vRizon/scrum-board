@@ -1,13 +1,261 @@
-body {
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: #2f2f33;
+  font-family: "Arial Black", "Arial Bold", Arial, sans-serif;
+}
+
+/* ── Board ── */
+.board {
+  display: grid;
+  grid-template-columns: 80px repeat(5, 1fr);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* ── Columns ── */
+.column {
+  display: flex;
+  flex-direction: column;
+  border-right: 3px solid #5a7a45;
+}
+
+.column:last-child {
+  border-right: none;
+}
+
+.column-body {
+  flex: 1;
+  padding: 12px 8px;
+  overflow-y: auto;
+}
+
+/* ── Column headers ── */
+.col-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  padding: 14px 10px;
+  background-color: #e8e8e8;
+  border-bottom: 4px solid #5a7a45;
+  cursor: default;
+}
+
+.col-header--add {
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.col-header--add:hover {
+  background-color: #d0d0d0;
+}
+
+.col-header--emergency {
+  background-color: #d9303e;
+}
+
+.col-label {
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #111;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.col-label--plus {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* ── Cards ── */
+.card {
+  background-color: #e8e8e8;
+  border-radius: 3px;
+  border-left: 4px solid #5a7a45;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  cursor: grab;
+  user-select: none;
+}
+
+.card--emergency {
+  border-left-color: #d9303e;
+}
+
+/* ── Modal ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background-color: #3a3a3e;
+  border: 2px solid #5a7a45;
+  border-radius: 4px;
+  padding: 24px;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-title {
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 4px;
+}
+
+.modal-input,
+.modal-select {
+  background-color: #2f2f33;
+  border: 2px solid #5a7a45;
+  border-radius: 3px;
+  color: #e8e8e8;
+  padding: 8px 10px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  width: 100%;
+}
+
+.modal-select {
+  cursor: pointer;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 4px;
+}
+
+/* ── Buttons ── */
+.btn {
+  padding: 8px 16px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  font-family: inherit;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.btn--cancel {
+  background-color: transparent;
+  border: 2px solid #5a7a45;
+  color: #e8e8e8;
+}
+
+.btn--add {
+  background-color: #5a7a45;
+  border: 2px solid #5a7a45;
+  color: #fff;
+}
+
+.btn--add:hover {
+  background-color: #4d6b3a;
+}
+
+.btn--cancel:hover {
+  background-color: rgba(90, 122, 69, 0.15);
+}
+
+.note {
+  border-radius: 4px;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  cursor: grab;
+}
+
+.note-text {
+  font-size: 12px;
+  font-weight: 700;
+  color: #111;
+  line-height: 1.4;
+}
+
+/* ── AddNote overlay ── */
+.addnote-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.addnote-form {
+  background-color: #fff;
+  border-radius: 16px;
+  padding: 32px 28px;
+  width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.addnote-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: #111;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.addnote-label {
+  font-size: 14px;
+  color: #111;
+  margin-top: 8px;
+}
+
+.addnote-input {
+  background-color: #e8e8e8;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #111;
+  outline: none;
+  width: 100%;
+}
+
+.addnote-btn {
+  margin-top: 16px;
+  padding: 14px;
+  background-color: #7acc33;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 900;
+  color: #111;
+  cursor: pointer;
+  width: 100%;
+}
+
+.addnote-btn:hover {
+  background-color: #3de03d;
 }
