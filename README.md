@@ -6,6 +6,16 @@ A drag-and-drop task management board built with React. Organize your tasks acro
 
 ---
 
+## Inspiration
+
+Inspired by the scrum board scene in **HBO's Silicon Valley** (Season 1, Episode 5), where Jared introduces the Pied Piper team to agile development with a colorful sticky-note board. Built as a React learning project to recreate that experience in the browser.
+
+> _"And that, gentlemen, is scrum. Welcome to the next eight weeks of our lives."_ — Jared
+
+![Silicon Valley Scrum Scene](./src/assets/ref.jpg)
+
+---
+
 ## Features
 
 - 📋 Five task columns — Ice Box, Emergency, In Progress, Testing, Done
