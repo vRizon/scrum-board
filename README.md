@@ -1,11 +1,3 @@
-# Scrum Board
-
-A drag-and-drop task management board built with React. Organize your tasks across columns and move them between stages as work progresses.
-
-![Scrum Board](./src/assets/scrumBoard_figma.png)
-
----
-
 ## Inspiration
 
 Inspired by the scrum board scene in **HBO's Silicon Valley** (Season 1, Episode 5), where Jared introduces the Pied Piper team to agile development with a colorful sticky-note board. Built as a React learning project to recreate that experience in the browser.
@@ -13,6 +5,14 @@ Inspired by the scrum board scene in **HBO's Silicon Valley** (Season 1, Episode
 > _"And that, gentlemen, is scrum. Welcome to the next eight weeks of our lives."_ — Jared
 
 ![Silicon Valley Scrum Scene](./src/assets/ref.jpg)
+
+---
+
+# Scrum Board
+
+A drag-and-drop task management board built with React. Organize your tasks across columns and move them between stages as work progresses.
+
+![Scrum Board](./src/assets/scrumBoard_figma.png)
 
 ---
 
